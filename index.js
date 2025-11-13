@@ -73,19 +73,20 @@ const purchases = [
 
 // #1 // 
 function getNumberEntries(object){
-  //create storage array
-  let array = [];
-  let subArray = [];
-  //for-in loop
+  //create result array
+  let resultArray = [];
+  //for-in loop; iterate thru object values
   for(let key in object){
+    //create sub array; inside loop will create new array every time
+    let subArray = [];
     if(typeof object[key] === 'number'){
       subArray = [key, object[key]];
-    array.push(subArray);
+    resultArray.push(subArray);
     }
     
   }
 
-return array;
+return resultArray;
 }
 
 
@@ -157,9 +158,10 @@ const findProduct = (array, product, output=[]) => {
     //condition
     if(array[i].product === product[i]){
       output.push(array[i].product, array[i].category);
-    }
+    } else{
   //RECURSION
     //condition
+    }
 };
 
 
