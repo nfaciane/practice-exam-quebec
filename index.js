@@ -73,24 +73,58 @@ const purchases = [
 
 // #1 // 
 function getNumberEntries(object){
-  
+  //create storage array
+  let array = [];
+  let subArray = [];
+  //for-in loop
+  for(let key in object){
+    if(typeof object[key] === 'number'){
+      subArray = [key, object[key]];
+    array.push(subArray);
+    }
+    
+  }
+
+return array;
 }
 
 
-
+//takes in object
+//add additions keys and values, array of subarrays, to object
+//returns object
 // #2 // 
 const addKeyValuePairs = (object, additions) => {
- 
+ //iterate thru additions array
+ for(let i = 0; i < additions.length; i++){
+  object[additions[i][0]] = additions[i][1];
+ }
+ return object;
 };
 
-
+//takes in array of objects
+//return new array
+//use filter method
 const filterByPrice = (array, price) => {
-  
+  let priceFind = array.filter(function(obj){
+    if(obj.price > price){
+      return obj.price;
+    }
+  } )
+  return priceFind;
 };
 
-
+//takes in array of objects
+//return new array of strings; product title uppercase and review text
+//use map method
 const mapPurchases = (array) => {
-
+let review = array.map(function(obj){
+  //loop thru review object array
+  for(i = 0; i < obj.mostLikedReviews.length; i++){
+    return obj.product.toUpperCase() + ' ' + '-' + ' ' + 'Review:' + ' ' + obj.mostLikedReviews[obj.mostLikedReviews.length - 1].text;
+  }
+  
+})
+return review;
 };
 
 
