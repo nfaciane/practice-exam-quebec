@@ -179,10 +179,11 @@ const findProduct = (array, product, output=[]) => {
     //condition 
         //write this condition first
     if(array[0].product === product){
-     return output.push(array[0].product, array[0].category);
+      output.push(array[0].product, array[0].category);
+      return output;
     }
     //return function with array slice index 1
-    return findProduct(array.slice(1));
+    return findProduct(array.slice(1), product, output);
 };
 
 
