@@ -128,16 +128,38 @@ return review;
 };
 
 
-
+//takes in array of objects
+//return string of 
+//if product quantity is 1; push the first word of product description into string result
+//use reduce
 // #5 //
 const accumulateString = (array) => {
-  
+  let string = array.reduce(function(acc, obj){
+   let wordIndex = obj.quantity;
+   //convert product string into array
+   let wordArray = obj.product.split(' ');
+   //iterate thru wordArray
+   for(let i = 0; i < wordArray.length; i++){
+    acc += wordArray[wordIndex - 1];
+   }
+   return acc;
+  }, '')
+  return string;
 };
 
-
+//takes in array of objects; iterates thru array to find product match; if object[i].product === product[i];
+// push object.product and object.category into result array; else return null at 0 and 1 index
+//return array
+//use recursion
 // #6 //
 const findProduct = (array, product, output=[]) => {
-  
+  //Base Case
+    //condition
+    if(array[i].product === product[i]){
+      output.push(array[i].product, array[i].category);
+    }
+  //RECURSION
+    //condition
 };
 
 
